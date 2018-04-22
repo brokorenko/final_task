@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	      http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>Application</display-name>
+    <description>
+        This is a simple web application with a source code organization
+        based on the recommendations of the Application Developer's Guide.
+    </description>
+
+    <welcome-file-list>
+        <welcome-file>/view/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>FrontController</servlet-name>
+        <servlet-class>com.andy.web_task.controller.FrontController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>FrontController</servlet-name>
+        <url-pattern>/FrontController</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/view/error_response.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.io.IOException</exception-type>
+        <location>/view/error_response.jsp</location>
+    </error-page>
+
+    <jsp-config>
+        <taglib>
+            <taglib-uri>/WEB-INF/tld/taglib.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tld/taglib.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
+    <listener>
+        <listener-class>com.andy.web_task.controller.command.util.SessionListener</listener-class>
+    </listener>
+
+<!--    <filter>
+        <filter-name>filter</filter-name>
+        <filter-class>com.andy.web_task.controller.command.util.RequestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filter</filter-name>
+        <url-pattern>/FrontController?command=UserPage</url-pattern>
+    </filter-mapping>-->
+
+</web-app>
